@@ -15,3 +15,19 @@ body{
    text-align: center;
    box-shadow: 0 30px 50px rgb(65, 50, 100, 0.08);
 }
+.search-input{
+    background-color:#f7f9fe;
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 16px;
+}
+.search-button{
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 16px;
+    margin-left: 5px;
+    width: 150px;
+}
