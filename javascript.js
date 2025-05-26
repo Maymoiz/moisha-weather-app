@@ -51,6 +51,13 @@ function searchSubmit(event) {
     searchCity(searchInput.value); 
 }
 
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; 
+    return days[day];
+}
+
 function getForecast(city){
     let forecastApiKey = "6b0de8c4f230fd2bf4t68daf5046oe9a";
     let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&unit=metric`;
@@ -62,28 +69,30 @@ axios.get(forecastApiUrl)
 }
 
 function displayForecast(response) {
-console.log(response.data);
+    console.log(response.data);
 
-    let daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-    let forecastHTML = "";
+let forecastHTML = "";
 
-    daysOfTheWeek.forEach(function(day) {
-        forecastHTML += 
+response.data.daily.forEach(function(day , index) {
+    if (index < 5){
+        forecastHTML = forecastHTML + 
            `<div>
-                <span class="fore-day">${day}</span> <br> 
-                <span class="fore-icon">🌤</span><br> 
+                <span class="fore-day">${formatDay(day.time)}</span> <br> 
+                <span>
+                <img class="fore-icon"
+                 src="${day.condition.icon_url}"/>
+                </span><br> 
                 <span class="fore-temp">
-                    <span class="max"><b>15°</b></span>
-                    <span class="min"> 9°</span>
+                    <span><b>${Math.round(day.temperature.maximum)}°</b></span>
+                    <span>${Math.round(day.temperature.minimum)}°</span>
                 </span>
-            </div>`;
+            </div>`
+        }
     });
 
     let forecast = document.querySelector("#forecast");
     forecast.innerHTML = forecastHTML;
 }
-
-displayForecast({});
 
         
 searchCity("Pretoria");
