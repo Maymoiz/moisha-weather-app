@@ -2,6 +2,10 @@ function updateWeather(response) {
     let temperature = document.querySelector("#app-temp");
     console.log(response.data);
     temperature.innerHTML = Math.round(response.data.temperature.current);
+let icon =document.querySelector("#icon");
+icon.innerHTML = `<img class="temp-icon"
+        src="${response.data.condition.icon_url}" alt="${response.data.condition.description}" width="60" />`;
+
 let city = document.querySelector("#app-city");
     console.log(response.data);
     let description = document.querySelector("#description");

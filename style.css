@@ -63,13 +63,13 @@ h1{
 }
 .app-temp{
     font-size: 88px;
-    line-height: 1;
+    line-height: 88px;
     font-weight: 400;
     margin-left: 10px;
 }
 .temp-icon{
-    font-size: 45px;
-    margin-top: 10px;
+    width: 88px;
+    height: 88px;
 }
 .temp-unit{
     font-size:30px;
