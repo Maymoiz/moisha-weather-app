@@ -76,15 +76,16 @@ h1{
 }
 .forecast{
     display: flex;
-    justify-content: space-between;
-    margin: 5px;
+    justify-content: space-around;
+    margin-top: 38px;
     
 }
 .fore-day{
     font-size: 25px;
     font-weight: 100;
     line-height: 28px;
-    color: rgb(39, 33, 66);
+    color: rgba(39, 33, 66, 0.726);
+    margin-bottom: 10px;
 }
 .fore-icon{
     width: 50px;
@@ -96,6 +97,7 @@ h1{
     font-size: 18px;
     color: #f65282;
     word-spacing: 5px;
+    
 }
 a{
     color:purple ;
