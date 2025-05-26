@@ -74,7 +74,29 @@ h1{
 .temp-unit{
     font-size:30px;
 }
-
+.forecast{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    
+}
+.fore-day{
+    font-size: 25px;
+    font-weight: 100;
+    line-height: 28px;
+    color: rgb(39, 33, 66);
+}
+.fore-icon{
+    width: 50px;
+    height: 50px;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+.fore-temp{
+    font-size: 18px;
+    color: #f65282;
+    word-spacing: 5px;
+}
 a{
     color:purple ;
 }
