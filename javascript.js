@@ -17,6 +17,7 @@ let city = document.querySelector("#app-city");
     let dateElement = document.querySelector("#time");
     let dateInMilliseconds = response.data.time * 1000;
     dateElement.innerHTML = formatDate(dateInMilliseconds);
+    getForecast(response.data.city);
     
 }
 function formatDate(date) {
@@ -50,7 +51,19 @@ function searchSubmit(event) {
     searchCity(searchInput.value); 
 }
 
+function getForecast(city){
+    let forecastApiKey = "6b0de8c4f230fd2bf4t68daf5046oe9a";
+    let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&unit=metric`;
+console.log(forecastApiUrl);
+
+axios.get(forecastApiUrl)
+    .then(displayForecast)
+    .catch(error => console.error('Error fetching forecast data:', error));
+}
+
 function displayForecast(response) {
+console.log(response.data);
+
     let daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     let forecastHTML = "";
 
