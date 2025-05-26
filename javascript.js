@@ -50,6 +50,29 @@ function searchSubmit(event) {
     searchCity(searchInput.value); 
 }
 
+function displayForecast(response) {
+    let daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    let forecastHTML = "";
+
+    daysOfTheWeek.forEach(function(day) {
+        forecastHTML += 
+           `<div>
+                <span class="fore-day">${day}</span> <br> 
+                <span class="fore-icon">🌤</span><br> 
+                <span class="fore-temp">
+                    <span class="max"><b>15°</b></span>
+                    <span class="min"> 9°</span>
+                </span>
+            </div>`;
+    });
+
+    let forecast = document.querySelector("#forecast");
+    forecast.innerHTML = forecastHTML;
+}
+
+displayForecast({});
+
+        
 searchCity("Pretoria");
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchSubmit); 
